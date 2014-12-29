@@ -8,7 +8,7 @@ public class ToastFrame {
 
     public static void main(String[] args) {
         int i = 0;
-        String[] face = {"J(>_<)l","J(^-^)l"}; 
+        String[] face = {"J(>_<)l","J(^-^)l", "J(^o^)l", "J(^o^)/"}; 
         frame.ToastFrame frame = new frame.ToastFrame(WindowEnvironment.RIGHT,WindowEnvironment.TOP);
         JLabel iconJLabel = new JLabel("J(^-^)l");
         frame.setText("WakeUp!!!");
