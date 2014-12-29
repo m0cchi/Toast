@@ -22,7 +22,7 @@ public class ToastFrame {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            iconJLabel.setText(face[i++%2]);
+            iconJLabel.setText(face[Math.abs(i++%2)]);
         }
     }
 
