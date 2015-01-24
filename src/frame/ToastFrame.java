@@ -2,6 +2,8 @@ package frame;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -10,7 +12,7 @@ import javax.swing.JPanel;
 import frame.WindowEnvironment.Location;
 import frame.component.MainPanel;
 
-public class ToastFrame extends JFrame {
+public class ToastFrame extends JFrame implements MouseListener{
     private static final long serialVersionUID = 8836021697094316864L;
     private int borderWidth = 5;
     private Color borderColor = new Color(0,0,0);
@@ -18,6 +20,7 @@ public class ToastFrame extends JFrame {
     private JPanel mainPanel;
     private JLabel icon;
     private JLabel text;
+    private MouseListener mouseListener;
     private int x,y;
     private ToastFrame() {
         super();
@@ -38,6 +41,11 @@ public class ToastFrame extends JFrame {
 
     public ToastFrame(Location.X x, Location.Y y) {
         this(x.get(), y.get());
+    }
+    
+    public ToastFrame(Location.X x, Location.Y y,MouseListener listener) {
+        this(x.get(), y.get());
+        this.mouseListener = listener;
     }
 
     private void invisible(Component c) {
@@ -92,6 +100,40 @@ public class ToastFrame extends JFrame {
         this.x = x.get();
         this.y = y.get();
         updateLocation();
+    }
+    
+    public void setMouseListener(MouseListener listener){
+        this.mouseListener = listener;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(mouseListener != null)
+            mouseListener.mouseClicked(e);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        if(mouseListener != null)
+            mouseListener.mousePressed(e);
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        if(mouseListener != null)
+            mouseListener.mouseReleased(e);
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        if(mouseListener != null)
+            mouseListener.mouseEntered(e);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        if(mouseListener != null)
+            mouseListener.mouseExited(e);
     }
     
 }
