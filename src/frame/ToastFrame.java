@@ -30,6 +30,7 @@ public class ToastFrame extends JFrame implements MouseListener{
         mainPanel = new MainPanel(this.borderColor,this.innerColor,this.borderWidth);
         mainPanel.setLayout(null);
         super.add(mainPanel);
+        super.addMouseListener(this);
     }
 
     public ToastFrame(int x, int y) {
