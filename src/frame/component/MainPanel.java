@@ -33,6 +33,14 @@ public class MainPanel extends JPanel {
         this.borderWidth = borderWidth;
     }
 
+    public void setBorderColor(Color c){
+        this.borderColor = c;
+    }
+    
+    public void setInnerColor(Color c){
+        this.innerColor = c;
+    }
+    
     @Override
     public void paintComponent(Graphics g){
         Graphics2D g2 = (Graphics2D)g;

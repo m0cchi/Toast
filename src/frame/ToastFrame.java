@@ -102,6 +102,10 @@ public class ToastFrame extends JFrame implements MouseListener{
         this.y = y.get();
         updateLocation();
     }
+
+    public MainPanel getMainPanel(){
+        return (MainPanel) this.mainPanel;
+    }
     
     public void setMouseListener(MouseListener listener){
         this.mouseListener = listener;
