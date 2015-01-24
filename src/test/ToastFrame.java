@@ -3,6 +3,7 @@ package test;
 import javax.swing.JLabel;
 
 import frame.WindowEnvironment;
+import frame.lib.DefaultMouseListener;
 
 public class ToastFrame {
 
@@ -10,12 +11,13 @@ public class ToastFrame {
         int i = 0;
         String[] face = {"J(>_<)l","J(^-^)l", "J(^o^)l", "J(^o^)/"}; 
         frame.ToastFrame frame = new frame.ToastFrame(WindowEnvironment.RIGHT,WindowEnvironment.TOP);
+        frame.setMouseListener(new DefaultMouseListener());
         JLabel iconJLabel = new JLabel("J(^-^)l");
         frame.setText("WakeUp!!!");
         frame.setIcon(iconJLabel);
         frame.reshow();
         frame.setVisible(true);
-        while (true) {
+        while (frame.isActive()) {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
